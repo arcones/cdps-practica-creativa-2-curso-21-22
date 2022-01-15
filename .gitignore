@@ -6,3 +6,6 @@ app
 
 # Pyenv
 .python-version
+
+# Tarball
+cdps-pc2.tar.gz
