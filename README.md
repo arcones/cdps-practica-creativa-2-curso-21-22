@@ -1,11 +1,12 @@
 # cdps-practica-creativa-2
 
-## Requisitos
-
-- python3
-- pip
-
 ## Despliegue de aplicación en máquina virtual pesada
+
+### Requisitos
+
+- Máquina virtual con Ubuntu instalado
+
+### Pasos a seguir
 
 1. Preparar el tarball necesario para suministrar a la máquina:
 
@@ -36,4 +37,5 @@ Espere unos instantes y haga click en "Retry" para acceder nuevamente al termina
     cd bookstore && ./runBookStore.sh
 ```
 
-## TODOs
+### TODOs
+- Probar a prescindir de pyenv, si funciona sin más quitar todo lo relativo

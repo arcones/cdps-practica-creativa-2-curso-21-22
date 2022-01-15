@@ -30,18 +30,9 @@ def _set_environment_variables_needed():
 
 
 def _port_forwarding_setup_n_information():
-    subprocess.Popen([
-        'sudo', 'socat', 'tcp-listen:80,reuseaddr,fork', 'tcp:localhost:9080',
-        '&'
-    ])
+    port_fwd = subprocess.Popen(['sudo', 'socat', 'tcp-listen:80,reuseaddr,fork', 'tcp:localhost:9080'])
 
-    public_ip = subprocess.check_output(["curl", "ifconfig.me"])
-    public_ip_get_command = "curl ifconfig.me | cat"
-    execution = subprocess.Popen(public_ip_get_command,
-                                 shell=True,
-                                 stdout=subprocess.PIPE,
-                                 stderr=subprocess.STDOUT)
-    public_ip = execution.communicate()[0]
+    public_ip = subprocess.check_output(["curl", "ifconfig.me"]).decode("utf-8") 
 
     print(
         f"\n\n\n\nAcceda a la aplicación en http://{public_ip}/productpage\n\n\n\n"
