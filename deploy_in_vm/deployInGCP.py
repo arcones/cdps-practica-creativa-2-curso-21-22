@@ -6,7 +6,7 @@ import sys
 import shutil
 
 URL = "https://github.com/CDPS-ETSIT/practica_creativa2.git"
-REPO_PATH = ".\\app"
+REPO_PATH = "app"
 
 
 def _cleanup_from_previous_executions ():
