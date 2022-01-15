@@ -1,13 +1,13 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 from git import Repo
 import subprocess
 import sys
 import shutil
+import os
 
 URL = "https://github.com/CDPS-ETSIT/practica_creativa2.git"
-REPO_PATH = "app"
-
+REPO_PATH = f"{os.getcwd()}/app"
 
 def _cleanup_from_previous_executions ():
     try:
@@ -16,10 +16,12 @@ def _cleanup_from_previous_executions ():
         print(f"Error deleting directoy: {e}")
 
 def _clone_repo_and_go():
+    print(REPO_PATH)
     Repo.clone_from(URL, REPO_PATH)
-    shutil.move(".", f"./{REPO_PATH}/bookinfo/src/productpage")
+    os.chdir(f"{REPO_PATH}/bookinfo/src/productpage")
 
 def _install_deps():
+    subprocess.check_call([sys.executable, '-m', 'pip', '--version'])
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt'])
 
 if __name__=="__main__":

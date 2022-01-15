@@ -3,3 +3,6 @@
 
 # Downloaded repo
 app
+
+# Pyenv
+.python-version
