@@ -33,8 +33,20 @@
     source ~/.profile
 ```
 
+5. Establecer el valor de la variable de entorno que completará el título de la web:
+
+```bash
+    export GROUP_NUMBER="Equipo 09 - Marta Arcones & Teresa Charlo" 
+```
+
 5. Finalmente, para levantar el servicio bookstore, ejecutar:
 
 ```bash
     ./runBookStore.sh
+```
+
+Si se quiere correr la aplicación en un puerto distinto, pasarlo como argumento, por ejemplo:
+
+```bash
+    ./runBookStore.sh 9181
 ```
