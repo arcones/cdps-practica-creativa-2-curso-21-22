@@ -3,6 +3,7 @@ import subprocess
 import sys
 import os
 import argparse
+import re
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--port", help="The port where bookstore will run", default=9080, required=False, type=int)
@@ -36,9 +37,19 @@ def _fix_deps():
     subprocess.check_call(['pip', 'install', 'urllib3==1.24.1', 'jsonschema==2.6.0'])
     subprocess.check_call(['pip', 'install', '--upgrade', 'requests'])
 
-def _set_environment_variables_needed():
-    os.environ["GROUP_NUMBER"] = "Equipo 09 - Marta Arcones & Teresa Charlo"
-    # TODO setearla en el código de la aplicación
+def _set_website_title():
+    if not 'GROUP_NUMBER' in os.environ:
+        os.environ["GROUP_NUMBER"] = "Equipo 09"
+
+    search_text = "BookInfo Sample"
+    replace_text = f"BookInfo Sample {os.environ['GROUP_NUMBER']}"
+
+    with open(r"./templates/productpage.html", "r+" ) as productpage_source:
+        data = productpage_source.read()
+        data = data.replace(search_text, replace_text)
+  
+    with open(r"./templates/productpage.html", 'w') as productpage_source:
+        productpage_source.write(data)
 
 def _port_forwarding_setup_n_information():
     subprocess.Popen(['sudo', 'socat', 'tcp-listen:80,reuseaddr,fork', f'tcp:localhost:{PORT}'],
@@ -61,6 +72,7 @@ if __name__ == "__main__":
     _clone_repo_and_go()
     _install_deps()
     _fix_deps()
-    _set_environment_variables_needed()
+    _set_website_title()
     _port_forwarding_setup_n_information()
     _run_app()
+    _set_website_title()
