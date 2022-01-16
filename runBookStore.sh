@@ -7,4 +7,9 @@ else
     pyenv install 3.7.7 && pyenv global 3.7.7
 fi
 
-pip install -r requirements.txt && python setupNLaunchBookStore.py
+if [ $# -eq 0 ]; then
+    echo -e "\n\n\nThe port has not been specified so the app will run on default one, 9080\n\n\n"
+    pip install -r requirements.txt && python setupNLaunchBookStore.py
+else
+    pip install -r requirements.txt && python setupNLaunchBookStore.py --port $1
+fi

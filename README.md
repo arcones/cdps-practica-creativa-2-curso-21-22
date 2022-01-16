@@ -18,24 +18,23 @@
 
 ![upload to vm button](./upload_to_vm.png)
 
-3. Dentro de la consola de la máquina virtual, ejecutar las siguienter órdenes para descomprimir el tarball y ejecutar el script que instalará el entorno python necesario y reiniciar la máquina:
+3. Dentro de la consola de la máquina virtual, descomprimir el tarball y ejecutar el script que instalará el entorno python necesario:
 
 ```bash
-    rm -rf bookstore && mkdir bookstore && tar xvf cdps-pc2.tar.gz -C bookstore && rm -rf cdps-pc2.tar.gz && \
-        cd bookstore && ./setupVM.sh
+    rm -rf bookstore && mkdir bookstore && \
+        tar xvf cdps-pc2.tar.gz -C bookstore && \
+        rm -rf cdps-pc2.tar.gz && cd bookstore && \
+        ./setupVM.sh
 ```
 
-Cuando la máquina se reinicie, su terminal se quedará sin conectividad y saldrá el siguiente error:
-
-![reseting vm](./reseting_vm.png)
-
-Espere unos instantes y haga click en "Retry" para acceder nuevamente al terminal de la máquina recién arrancada.
-
-4. Finalmente, para levantar el servicio bookstore, ejecutar:
+4. Reiniciar la shell para aplicar los cambios
 
 ```bash
-    cd bookstore && ./runBookStore.sh
+    source ~/.profile
 ```
 
-### TODOs
-- Probar a prescindir de pyenv, si funciona sin más quitar todo lo relativo
+5. Finalmente, para levantar el servicio bookstore, ejecutar:
+
+```bash
+    ./runBookStore.sh
+```
