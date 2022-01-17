@@ -61,7 +61,14 @@ Aparecerá un mensaje con la URL pública de la aplicación para acceder desde f
 
 #### Despligue en servidores de práctica creativa 1
 
-##### Requisitos
-
-
 ##### Pasos a seguir
+
+1. Ejecutar los comandos del script de la práctica creativa 1 para preparar y levantar el escenario. Por ejemplo para un escenario compuesto de 3 servidores:
+
+```bash
+    ./auto-p2.py download && \
+        ./auto-p2.py prepare --num_serv 3 && \
+        ./auto-p2.py launch
+```
+
+Abrir en el navegador la URL http://X.X.X.X. En el título de la misma habrá un sufijo que desvele que servidor está sirviendo la página en cada momento. Refrescando la página se puede comprobar que es servida cada vez por un servidor distinto ya que el balanceador de carga está haciendo round-robin.
