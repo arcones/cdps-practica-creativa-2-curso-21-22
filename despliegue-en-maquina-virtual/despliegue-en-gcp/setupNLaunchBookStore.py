@@ -3,7 +3,6 @@ import subprocess
 import sys
 import os
 import argparse
-import re
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--port", help="The port where bookstore will run", default=9080, required=False, type=int)
