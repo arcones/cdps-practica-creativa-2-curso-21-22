@@ -145,8 +145,8 @@ def _update_indexes(num_serv):
 def _add_bookstore_files(num_serv):
     i = 1
     while i <= num_serv:
-        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/requirements.txt", "~/"])
-        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/setupVM.sh", "~/"])
-        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/setupNLaunchBookStore.py", "~/"])
-        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/runBookStore.sh", "~/"])
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/requirements.txt", "/home/cdps/"])
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/setupVM.sh", "/home/cdps/"])
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/setupNLaunchBookStore.py", "/home/cdps/"])
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/runBookStore.sh", "/home/cdps/"])
         i += 1
