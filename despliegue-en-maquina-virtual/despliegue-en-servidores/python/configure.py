@@ -56,12 +56,6 @@ def _update_server_network_interfaces(num_serv):
         i += 1
     subprocess.call(["rm", "-rf", TMP_DIR])
 
-def _add_bookstore_files(num_serv):
-    i = 1
-    while i <= num_serv:
-        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/*", "~/"])
-        i += 1
-
 def _update_lb_network_interface():
     subprocess.call(["mkdir", "-p", TMP_DIR])
     with open(f"{TMP_DIR}/interfaces", 'w') as interfaces:
@@ -146,3 +140,13 @@ def _update_indexes(num_serv):
         subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{TMP_DIR}/index.html", "/var/www/html/"])
         i += 1
     subprocess.call(["rm", "-rf", TMP_DIR])
+
+
+def _add_bookstore_files(num_serv):
+    i = 1
+    while i <= num_serv:
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/requirements.txt", "~/"])
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/setupVM.sh", "~/"])
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/setupNLaunchBookStore.py", "~/"])
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/runBookStore.sh", "~/"])
+        i += 1
