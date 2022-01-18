@@ -4,7 +4,7 @@ EXPOSE 9080
 
 RUN apt-get update && apt-get install -y git psmisc figlet curl
 
-COPY requirements.txt setupNLaunchBookStore.py runBookStore.sh ./
+COPY requirements.txt setupNLaunchBookStore.py ./
 
 RUN pip install -r requirements.txt 
 

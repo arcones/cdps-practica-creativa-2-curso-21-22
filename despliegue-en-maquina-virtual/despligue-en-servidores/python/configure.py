@@ -4,7 +4,7 @@ import subprocess
 from util import get_scenario_machines_list
 
 TMP_DIR = "tmp_files"
-
+ASSETS_DIR = "assets"
 
 
 def configure(num_serv):
@@ -19,6 +19,7 @@ def configure(num_serv):
     _update_host_configuration()
     _update_indexes(num_serv)
     _update_lb_haproxy(num_serv)
+    _add_bookstore_files(num_serv)
 
     print('\033[92m' + "El escenario ha sido configurado" + '\033[0m')
 
@@ -55,6 +56,11 @@ def _update_server_network_interfaces(num_serv):
         i += 1
     subprocess.call(["rm", "-rf", TMP_DIR])
 
+def _add_bookstore_files(num_serv):
+    i = 1
+    while i <= num_serv:
+        subprocess.call(["sudo", "virt-copy-in", "-a", f"s{i}.qcow2", f"{ASSETS_DIR}/*", "~/"])
+        i += 1
 
 def _update_lb_network_interface():
     subprocess.call(["mkdir", "-p", TMP_DIR])

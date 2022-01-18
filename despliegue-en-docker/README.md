@@ -15,7 +15,7 @@ TODO
 
 
 ```bash
-    docker run -dp 8080:9080 --name bookstore equipo-09/bookstore:1.0.0
+    docker run -dp 8080:9080 --name bookstore equipo-09:bookstore
 ```
 
 La aplicación bookstore podrá ser accedida por el navegador en http://localhost:8080
