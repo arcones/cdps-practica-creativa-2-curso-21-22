@@ -1,0 +1,9 @@
+FROM ruby:2.7.1-slim
+
+EXPOSE 9080
+
+COPY requirements.txt setupNLaunchBookStore.py ./
+
+RUN pip install -r requirements.txt 
+
+ENTRYPOINT python setupNLaunchBookStore.py --port 9080
