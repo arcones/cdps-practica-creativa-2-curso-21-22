@@ -1,0 +1,13 @@
+FROM node:12.18.1-slim
+
+EXPOSE 9080
+
+WORKDIR /opt/microservices
+
+COPY app/bookinfo/src/ratings/* ./
+
+ENV SERVICE_VERSION=v1
+
+RUN npm install
+
+ENTRYPOINT node ratings.js 9080

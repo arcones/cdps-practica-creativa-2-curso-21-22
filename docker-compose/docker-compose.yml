@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+  product-page:
+    build:
+      context: .
+      dockerfile: ProductPage_Dockerfile
+    image: equipo9:productpage
+    restart: always
+    ports:
+      - 9080:9080
+
+  # details: 
+  #   image: equipo9:details
+  #   restart: always
+  #   ports:
+  #     - 9080:9080
+
+  # reviews: 
+  #   image: equipo9:reviews
+  #   restart: always
+  #   ports:
+  #     - 9080:9080
+  # ratings: 
+  #   image: equipo9:ratings
+  #   restart: always
+  #   ports:
+  #     - 9080:9080

@@ -7,3 +7,4 @@ auto-p2.json
 *.qcow2
 *.xml
 tmp_files
+.vscode
