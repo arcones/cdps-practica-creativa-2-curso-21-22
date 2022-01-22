@@ -5,6 +5,9 @@
 * Se usan ficheros con la configuración de los distintos entornos para parametrizar la versión de `Reviews` y el color de las estrellas en cada momento
 * Se proporciona un script bash para limpiar contenedores y ficheros de ejecucciones anteriores, bajarse los fuentes y compilarlos y finalmente ejecutar la orden de docker-compose que levanta el entorno con la configuración seleccionada
 
+## Comentarios acerca de la fiabilidad y escalabilidad de esta solución
+### TODO
+
 ## Pasos a seguir
 
 1. Construir la imagen ejecutando el script anteriormente mencionado con `sudo`:

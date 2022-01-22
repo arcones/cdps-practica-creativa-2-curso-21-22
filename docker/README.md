@@ -3,6 +3,9 @@
 ## Decisiones de diseño tomadas
 * Como ya se disponía de un script python para descargar, instalar y correr la aplicación, se ha reutilizado en este apartado con algunos cambios para delegar, por ejemplo la creación de la variable de entorno `GROUP_NUMBER` en el [Dockerfile](./Dockerfile)
 
+## Comentarios acerca de la fiabilidad y escalabilidad de esta solución
+### TODO
+
 ## Pasos a seguir
 
 1. Construir la imagen:
