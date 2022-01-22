@@ -1,28 +1,42 @@
 version: '3.3'
 
 services:
-  product-page:
+  productpage:
     build:
       context: .
       dockerfile: ProductPage_Dockerfile
-    image: equipo9:productpage
+    image: equipo9/productpage
+    # volumes:
+    #   - productpage:/home/node/app
     restart: always
     ports:
       - 9080:9080
+    links:
+      - "details"
 
-  # details: 
-  #   image: equipo9:details
-  #   restart: always
-  #   ports:
-  #     - 9080:9080
+  details:
+    build:
+      context: .
+      dockerfile: Details_Dockerfile
+    image: equipo9/details
+    restart: always
+    expose:
+      - 9080
 
-  # reviews: 
-  #   image: equipo9:reviews
-  #   restart: always
-  #   ports:
-  #     - 9080:9080
-  # ratings: 
-  #   image: equipo9:ratings
-  #   restart: always
-  #   ports:
-  #     - 9080:9080
+  reviews:
+    build:
+      context: app/bookinfo/src/reviews/reviews-wlpcfg
+      dockerfile: Dockerfile
+    image: equipo9/reviews
+    restart: always
+    expose:
+      - 9080
+
+  ratings:
+    build:
+      context: .
+      dockerfile: Ratings_Dockerfile
+    image: equipo9/ratings
+    restart: always
+    expose:
+      - 9080

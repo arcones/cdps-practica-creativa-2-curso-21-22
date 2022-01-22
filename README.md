@@ -11,3 +11,8 @@ En las carpetas siguientes se encuentran las resoluciones de los apartados con s
 2. [Despliegue en contenedor docker](./docker)
 3. [Despliegue con docker compose](./docker-compose)
 4. [Despliegue en kubernetes](./kubernetes)
+
+
+# TODOs
+1. Los CMDs y ENTRYPOINT con corchetes siempre!
+2. Tags contenedores nombreProducto/equipo:9 mejor?

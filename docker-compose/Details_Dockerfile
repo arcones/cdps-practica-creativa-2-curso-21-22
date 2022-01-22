@@ -2,7 +2,9 @@ FROM ruby:2.7.1-slim
 
 EXPOSE 9080
 
-COPY app/bookinfo/src/details/details.rb .
+COPY app/bookinfo/src/details/details.rb /opt/microservices/
+
+WORKDIR /opt/microservices
 
 ENV SERVICE_VERSION=v1 ENABLE_EXTERNAL_BOOK_SERVICE=true
 
