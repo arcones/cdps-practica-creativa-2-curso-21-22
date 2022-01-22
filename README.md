@@ -1,7 +1,7 @@
 # cdps-practica-creativa-2
 
-## Teresa Charlo Millán
-## Marta Arcones Rodríguez
+### Teresa Charlo Millán
+### Marta Arcones Rodríguez
 
 Segunda práctica creativa de la asignatura Centros de Datos y Provisión de Servicios.
 
