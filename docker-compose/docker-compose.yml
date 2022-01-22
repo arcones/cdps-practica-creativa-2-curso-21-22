@@ -27,6 +27,10 @@ services:
     build:
       context: app/bookinfo/src/reviews/reviews-wlpcfg
       dockerfile: Dockerfile
+      args:
+        service_version: v1
+        enable_ratings: "true"
+        star_color: "black"
     image: equipo9/reviews
     restart: always
     expose:
