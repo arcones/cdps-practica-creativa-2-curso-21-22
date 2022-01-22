@@ -41,7 +41,7 @@ def _fix_deps():
 
 def _set_website_title():
   if not 'GROUP_NUMBER' in os.environ:
-    os.environ["GROUP_NUMBER"] = "Equipo 09"
+    os.environ["GROUP_NUMBER"] = "9"
 
   search_text = "BookInfo Sample"
   replace_text = f"BookInfo Sample {os.environ['GROUP_NUMBER']}"

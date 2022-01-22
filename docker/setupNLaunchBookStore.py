@@ -35,7 +35,8 @@ def _fix_deps():
 
 def _set_website_title():
   if not 'GROUP_NUMBER' in os.environ:
-    os.environ["GROUP_NUMBER"] = "Equipo 09"
+    print("Se requiere la varible de entorno GROUP_NUMBER en el entorno")
+    sys.exit()
 
   search_text = "BookInfo Sample"
   replace_text = f"BookInfo Sample {os.environ['GROUP_NUMBER']}"
