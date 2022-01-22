@@ -12,4 +12,4 @@ docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project
 
 # Run all containers
 cd -
-docker-compose rm -f && docker-compose --env-file envs/$1.env up --build --force-recreate --remove-orphans
+docker-compose rm -f -v && docker-compose --env-file envs/$1.env up --build --force-recreate --remove-orphans
