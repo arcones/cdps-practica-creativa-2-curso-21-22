@@ -1,9 +1,9 @@
-## Despliegue de aplicación en contenedor docker
+# Despliegue de aplicación en contenedor docker
 
-### Decisiones de diseño tomadas
+## Decisiones de diseño tomadas
 * Como ya se disponía de un script python para descargar, instalar y correr la aplicación, se ha reutilizado en este apartado con algunos cambios para delegar, por ejemplo la creación de la variable de entorno `GROUP_NUMBER` en el [Dockerfile](./Dockerfile)
 
-##### Pasos a seguir
+## Pasos a seguir
 
 1. Construir la imagen:
 
