@@ -15,4 +15,4 @@ En las carpetas siguientes se encuentran las resoluciones de los apartados con s
 
 # TODOs
 1. Los CMDs y ENTRYPOINT con corchetes siempre!
-2. Tags contenedores nombreProducto/equipo:9 mejor?
+2. Tags y names contenedores --name g45-product-page -d g45/product-page

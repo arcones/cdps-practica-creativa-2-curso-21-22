@@ -12,7 +12,8 @@ services:
     ports:
       - 9080:9080
     links:
-      - "details"
+      - details
+      - reviews
 
   details:
     build:
@@ -25,22 +26,22 @@ services:
 
   reviews:
     build:
-      context: app/bookinfo/src/reviews/reviews-wlpcfg
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: Reviews_Dockerfile
       args:
         service_version: v1
-        enable_ratings: "true"
+        enable_ratings: "false"
         star_color: "black"
     image: equipo9/reviews
     restart: always
     expose:
       - 9080
 
-  ratings:
-    build:
-      context: .
-      dockerfile: Ratings_Dockerfile
-    image: equipo9/ratings
-    restart: always
-    expose:
-      - 9080
+  # ratings:
+  #   build:
+  #     context: .
+  #     dockerfile: Ratings_Dockerfile
+  #   image: equipo9/ratings
+  #   restart: always
+  #   expose:
+  #     - 9080
