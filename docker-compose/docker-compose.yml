@@ -1,28 +1,47 @@
 version: '3.3'
 
 services:
-  product-page:
+  productpage:
     build:
       context: .
       dockerfile: ProductPage_Dockerfile
-    image: equipo9:productpage
+    image: equipo9/productpage
     restart: always
     ports:
       - 9080:9080
+    links:
+      - details
+      - reviews
 
-  # details: 
-  #   image: equipo9:details
-  #   restart: always
-  #   ports:
-  #     - 9080:9080
+  details:
+    build:
+      context: .
+      dockerfile: Details_Dockerfile
+    image: equipo9/details
+    restart: always
+    expose:
+      - 9080
 
-  # reviews: 
-  #   image: equipo9:reviews
-  #   restart: always
-  #   ports:
-  #     - 9080:9080
-  # ratings: 
-  #   image: equipo9:ratings
-  #   restart: always
-  #   ports:
-  #     - 9080:9080
+  reviews:
+    build:
+      context: .
+      dockerfile: Reviews_Dockerfile
+      args:
+        service_version: ${SERVICE_VERSION}
+        enable_ratings: ${ENABLE_RATINGS}
+        star_color: ${STAR_COLOR}
+    image: equipo9/reviews
+    restart: always
+    expose:
+      - 9080
+    links:
+      - ratings
+
+  ratings:
+    build:
+      context: .
+      dockerfile: Ratings_Dockerfile
+    image: equipo9/ratings
+    restart: always
+    expose:
+      - 9080

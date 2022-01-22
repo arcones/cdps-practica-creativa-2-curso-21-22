@@ -6,8 +6,8 @@ WORKDIR /opt/microservices
 
 COPY app/bookinfo/src/ratings/* ./
 
-ENV SERVICE_VERSION=v1
+ENV SERVICE_VERSION v1
 
 RUN npm install
 
-ENTRYPOINT node ratings.js 9080
+ENTRYPOINT ["node", "ratings.js", "9080"]
