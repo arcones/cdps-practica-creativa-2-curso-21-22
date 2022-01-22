@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: productpage-service
+  labels:
+    app: productpage
+spec:
+  ports:
+  - nodePort: 31355
+    port: 9080
+    protocol: TCP
+    targetPort: 9080
+  selector:
+    app: productpage
+  type: LoadBalancer
