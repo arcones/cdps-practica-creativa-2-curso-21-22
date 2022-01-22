@@ -8,4 +8,4 @@ COPY requirements.txt setupNLaunchBookStore.py ./
 
 RUN pip install -r requirements.txt 
 
-ENTRYPOINT python setupNLaunchBookStore.py --port 9080
+ENTRYPOINT ["python", "setupNLaunchBookStore.py", "--port", "9080"]

@@ -6,8 +6,6 @@ services:
       context: .
       dockerfile: ProductPage_Dockerfile
     image: equipo9/productpage
-    # volumes:
-    #   - productpage:/home/node/app
     restart: always
     ports:
       - 9080:9080
@@ -29,19 +27,21 @@ services:
       context: .
       dockerfile: Reviews_Dockerfile
       args:
-        service_version: v1
-        enable_ratings: "false"
-        star_color: "black"
+        service_version: ${SERVICE_VERSION}
+        enable_ratings: ${ENABLE_RATINGS}
+        star_color: ${STAR_COLOR}
     image: equipo9/reviews
     restart: always
     expose:
       - 9080
+    links:
+      - ratings
 
-  # ratings:
-  #   build:
-  #     context: .
-  #     dockerfile: Ratings_Dockerfile
-  #   image: equipo9/ratings
-  #   restart: always
-  #   expose:
-  #     - 9080
+  ratings:
+    build:
+      context: .
+      dockerfile: Ratings_Dockerfile
+    image: equipo9/ratings
+    restart: always
+    expose:
+      - 9080

@@ -2,13 +2,14 @@
 
 # Clean up from previous executions
 chown -R $USER app && rm -rf app
-docker rmi -f $(docker images -aq) ;  docker rm -vf $(docker ps -a -q) ; docker rmi -f $(docker images -aq) ; docker rm -vf $(docker ps -a -q)
 
+# Download application sources
 git clone https://github.com/CDPS-ETSIT/practica_creativa2.git app
 
-cd app/bookinfo/src/reviews && \
-    docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
+# Compile Java microservice
+cd app/bookinfo/src/reviews
+docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
 
+# Run all containers
 cd -
-
-docker-compose rm -f && docker-compose up --force-recreate --remove-orphans
+docker-compose rm -f && docker-compose --env-file envs/$1.env up --build --force-recreate --remove-orphans
