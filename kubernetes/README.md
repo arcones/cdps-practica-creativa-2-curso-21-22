@@ -14,3 +14,6 @@
 
 kubectl get service productpage-service -o json | jq -r '. |  "http://" + .status.loadBalancer.ingress[0].ip + ":" + (.spec.ports[0].targetPort|tostring) + "/productpage"'
 kubectl get service productpage-service -o json | jq -r '. |  "http://" + .status.loadBalancer.ingress[0].ip + ":" + (.spec.ports[0].targetPort|tostring) + "/productpage"'
+
+TODO
+el servicio de reviews q sea la versión 3

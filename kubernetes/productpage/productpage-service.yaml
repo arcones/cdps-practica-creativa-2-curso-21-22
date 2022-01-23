@@ -6,8 +6,7 @@ metadata:
     app: productpage
 spec:
   ports:
-  - nodePort: 31355
-    port: 9080
+  - port: 9080
     protocol: TCP
     targetPort: 9080
   selector:
