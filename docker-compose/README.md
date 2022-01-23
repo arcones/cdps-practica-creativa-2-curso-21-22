@@ -2,8 +2,9 @@
 
 ## Decisiones de diseño tomadas
 * Se ha decidido delegar en docker-compose la creación de los contenedores, usando la directiva `build` en cada una de las imágenes configuradas en el `docker-compose.yml`
-* Se usan ficheros con la configuración de los distintos entornos para parametrizar la versión de `Reviews` y el color de las estrellas en cada momento
-* Se proporciona un script bash para limpiar contenedores y ficheros de ejecucciones anteriores, bajarse los fuentes y compilarlos y finalmente ejecutar la orden de docker-compose que levanta el entorno con la configuración seleccionada
+* Se usan ficheros con la configuración de los distintos entornos para parametrizar la versión de `Reviews` y el color de las estrellas en cada momento.
+* Se proporciona un script bash para limpiar contenedores y ficheros de ejecucciones anteriores, bajarse los fuentes y compilarlos y finalmente ejecutar la orden de docker-compose que levanta el entorno con la configuración seleccionada.
+* Por último, se ha intentado que la solución sea lo más idempotente posible, incluyendo en los scripts y comandos requeridos una limpieza previa de ejecuciones anteriores.
 
 ## Comentarios acerca de la fiabilidad y escalabilidad de esta solución
 * La solución de este apartado es más compleja que la de los dos anteriores, pues hay que gestionar cuatro contenedores a la vez, además de la configuración para hacerlos trabajar juntos.

@@ -8,6 +8,7 @@
 * Para este sistema se ha utilizado la versión 2 de `Reviews` que usa `Ratings` para mostrar las estrellas de color rojo.
 * Las imágenes requeridas se han subido todas a docker hub para simplificar la creación de los pods y servicios.
 * Además, se provee de un único script de arranque, que, teniendo conexión con al clúster de Kubernetes y el `namespace` por defecto configurado correctamente, se encarga de limpiar cualquier configuración de ejecucciones anteriores y crear los pods y servicios necesarios. Para los servicios dependendientes de otros, como `Productpage` y `Reviews`, se utilizan plantillas para generar sus ficheros de despliegue usando `sed`, antes de lanzarlos al clúster.
+* Además se ha intentado que la solución sea lo más idempotente posible, incluyendo en el script una limpieza previa de ejecuciones anteriores.
 
 ## Comentarios acerca de la fiabilidad y escalabilidad de esta solución
 * La solución configurada en esta práctica es altamente fiable ya que se ha aplicado redundancia en algunos pods y además se ha distribuido la carga en los distintos nodos que componen el clúster. Esto hace que el sistema pueda aguantar de la caida de un pod o nodo mientras el máster de Kubernetes reconcilia el clúster para que la configuración se cumpla nuevamente.

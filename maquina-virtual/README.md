@@ -6,6 +6,8 @@
 ## Decisiones de diseño tomadas
 * La máquina virtual se preparara instalando `pyenv` y con esta funcionalidad se instala una versión específica de `python` y `pip`, para evitar problemas con la distintas versiones de `python` y/o dependencias si se delegase en la versión de `python` que viene por defecto con el sistema operativo.
 * La aplicación bookstore se levanta en el puerto designado (el indicado en los argumentos de entrada al programa o, en su defecto, el predeterminado), pero este puerto no se expone a Internet. En lugar de esto se usa `socat` para hacer una redirección del tráfico del puerto de la aplicación al 80, y así que las conexiones desde Internet a la máquina se hagan sin la necesidad de explicitar el puerto. El objetivo de esto es aprovechar la configuración que trae Google Cloud Platform por defecto para el puerto 80, que a buen seguro será más fiable que cualquier configuración que podamos hacer el máquina para exponer otro puerto manualmente.
+* Además se ha intentado que la solución sea lo más idempotente posible, incluyendo en los scripts y comandos requeridos una limpieza previa de ejecuciones anteriores.
+* Por último se ha hecho énfasis en la experiencia de usuario, incluyendo en el script de `python` los comandos necesarios para sacar por consola la dirección final a la que hay que conectarse, sin necesidad de buscar ka IP pública de máquina en la consola de GCP a posteriori.
 
 ## Comentarios acerca de la fiabilidad y escalabilidad de esta solución
 * Se ha intentado asegurar la fiabilidad de la solución planteada preparando la máquina con un entorno de `pyenv` para no depender del entorno python instalado en la máquina por defecto, pues este podría cambiarse en versiones de Ubuntu superiores.
@@ -18,7 +20,7 @@
 1. Preparar el tarball necesario para suministrar a la máquina:
 
 ```bash
-    cd ./despliegue-en-gcp && ./prepareTarball.sh
+    ./prepareTarball.sh
 ```
 
 2. Iniciar una sesión ssh en la máquina virtual y una vez dentro usar la funcionalidad siguiente para subir el tarball creado en el paso anterior (cdps-pc2.tar.gz):
@@ -43,7 +45,7 @@
 5. Establecer el valor de la variable de entorno que completará el título de la web:
 
 ```bash
-    export GROUP_NUMBER="Equipo 09"
+    export GROUP_NUMBER="9"
 ```
 
 6. Finalmente, para levantar el servicio bookstore, ejecutar:

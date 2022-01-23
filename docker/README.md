@@ -4,7 +4,7 @@
 - Docker engine instalado
 
 ## Decisiones de diseño tomadas
-* Como ya se disponía de un script python para descargar, instalar y correr la aplicación, se ha reutilizado en este apartado con algunos cambios para delegar, por ejemplo la creación de la variable de entorno `GROUP_NUMBER` en el [Dockerfile](./Dockerfile)
+* Como ya se disponía de un script python para descargar, instalar y correr la aplicación, se ha reutilizado en este apartado con algunos cambios para delegar, por ejemplo la creación de la variable de entorno `GROUP_NUMBER` en el [Dockerfile](./Dockerfile).
 
 ## Comentarios acerca de la fiabilidad y escalabilidad de esta solución
 * Esta solución es mucho más fiable que la máquina virtual pues al utilizar una imagen base fija, nos estamos asegurando de que el entorno donde corre la aplicación no cambie.
@@ -25,10 +25,12 @@
     docker run -p 8080:9080 -e "GROUP_NUMBER=9" --name equipo9-bookstore equipo9/bookstore
 ```
 
+La aplicación bookstore podrá ser accedida por el navegador en http://localhost:8080/productpage
+
 3. También se ha subido la imagen a dockerhub así que se puede correr directamente en cualquier equipo con docker engine instalado con:
 
 ```bash
-    docker run -p 8080:9080 -e "GROUP_NUMBER=9" --name equipo9-bookstore arcones/bookstore:9
+    docker run -p 8081:9080 -e "GROUP_NUMBER=9" --name equipo9-bookstore-dockerhub arcones/bookstore:9
 ```
 
-La aplicación bookstore podrá ser accedida por el navegador en http://localhost:8080/productpage
+La aplicación bookstore podrá ser accedida por el navegador en http://localhost:8081/productpage
