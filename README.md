@@ -15,5 +15,5 @@ En las carpetas siguientes se encuentran las resoluciones de los apartados con s
 Dichos READMEs componen la memoria solicitada de cada apartado.
 
 # TODOs
-2. Probar todos los apartados con un entorno limpio nuevamente
-3. Probar todos los apartados en máquina de laboratorio
+1. Probar todos los apartados con un entorno limpio nuevamente
+2. Probar todos los apartados en máquina de laboratorio
