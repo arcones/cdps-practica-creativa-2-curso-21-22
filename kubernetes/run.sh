@@ -1,27 +1,16 @@
 #!/bin/bash
 
-cd dockerfiles
+# Clean up cluster
+#kubectl delete --all deployments && kubectl delete --all pods && kubectl delete --all services
 
-# Clean up from previous executions
-chown -R $USER app && rm -rf app
+kubectl apply -f details
 
-# Download application sources
-git clone https://github.com/CDPS-ETSIT/practica_creativa2.git app
+DETAILS_HOSTNAME=`kubectl get services details-service -o json | jq -r '.spec.clusterIP'`
 
-# Compile Java microservice
-cd app/bookinfo/src/reviews
-docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
+echo "El host donde corre el servicio de details es el ${DETAILS_HOSTNAME}"
 
-cd -
+cat productpage/productpage-deployment.yaml | sed "s/{{DETAILS_HOSTNAME}}/$DETAILS_HOSTNAME/g" | kubectl apply -f -
 
-# Create containers and push them to registry
-docker login
+kubectl apply -f productpage/productpage-service.yaml
 
-docker build -f ProductPage_Dockerfile -t arcones/equipo9-k8s-productpage . && docker push arcones/equipo9-k8s-productpage
-docker build -f Details_Dockerfile -t arcones/equipo9-k8s-details . && docker push arcones/equipo9-k8s-details
-docker build -f Reviews_Dockerfile -t arcones/equipo9-k8s-reviews . && docker push arcones/equipo9-k8s-reviews
-docker build -f Ratings_Dockerfile -t arcones/equipo9-k8s-ratings . && docker push arcones/equipo9-k8s-ratings
-
-
-
-cd ..
+watch kubectl get services
