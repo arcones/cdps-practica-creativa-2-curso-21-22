@@ -21,5 +21,5 @@ spec:
         ports:
         - containerPort: 9080
         env:
-        - name: SERVICES_DOMAIN
-          value: 10.12.4.84
+        - name: DETAILS_HOSTNAME
+          value: 10.12.0.74
