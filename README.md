@@ -12,8 +12,8 @@ En las carpetas siguientes se encuentran las resoluciones de los apartados con s
 3. [Despliegue con docker compose](./docker-compose)
 4. [Despliegue en kubernetes](./kubernetes)
 
+Dichos READMEs componen la memoria solicitada de cada apartado.
 
 # TODOs
-1. Tags y names contenedores --name g45-product-page -d g45/product-page
-2. Probar todos los apartados con un entorno limpio nuevamente
-3. Probar todos los apartados en máquina de laboratorio
+1. Probar todos los apartados con un entorno limpio nuevamente
+2. Probar todos los apartados en máquina de laboratorio

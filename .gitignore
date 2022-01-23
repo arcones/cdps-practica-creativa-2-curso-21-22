@@ -9,3 +9,6 @@ auto-p2.json
 tmp_files
 .vscode
 .history
+kubernetes/productpage/productpage-deployment.yaml
+kubernetes/reviews/reviews-deployment.yaml
+kubernetes/probe

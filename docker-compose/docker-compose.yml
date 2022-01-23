@@ -2,6 +2,7 @@ version: '3.3'
 
 services:
   productpage:
+    container_name: equipo9-productpage
     build:
       context: .
       dockerfile: ProductPage_Dockerfile
@@ -14,6 +15,7 @@ services:
       - reviews
 
   details:
+    container_name: equipo9-details
     build:
       context: .
       dockerfile: Details_Dockerfile
@@ -23,6 +25,7 @@ services:
       - 9080
 
   reviews:
+    container_name: equipo9-reviews
     build:
       context: .
       dockerfile: Reviews_Dockerfile
@@ -38,6 +41,7 @@ services:
       - ratings
 
   ratings:
+    container_name: equipo9-ratings
     build:
       context: .
       dockerfile: Ratings_Dockerfile
