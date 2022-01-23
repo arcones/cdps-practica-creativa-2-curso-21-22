@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: details
+  name: ratings
   labels:
-    app: details
+    app: ratings
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: details
+      app: ratings
   template:
     metadata:
       labels:
-        app: details
+        app: ratings
     spec:
       containers:
-      - name: equipo9-k8s-details
-        image: arcones/equipo9-k8s-details
+      - name: equipo9-k8s-ratings
+        image: arcones/equipo9-k8s-ratings
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
