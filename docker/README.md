@@ -1,10 +1,14 @@
 # Despliegue de aplicación en contenedor docker
 
+## Requisitos
+- Docker engine instalado
+
 ## Decisiones de diseño tomadas
 * Como ya se disponía de un script python para descargar, instalar y correr la aplicación, se ha reutilizado en este apartado con algunos cambios para delegar, por ejemplo la creación de la variable de entorno `GROUP_NUMBER` en el [Dockerfile](./Dockerfile)
 
 ## Comentarios acerca de la fiabilidad y escalabilidad de esta solución
-### TODO
+* Esta solución es mucho más fiable que la máquina virtual pues al utilizar una imagen base fija, nos estamos asegurando de que el entorno donde corre la aplicación no cambie
+* Sin embargo, los problemas de escalabilidad son los mismos que en el apartado de máquinas virtuales pues estamos creando un único contenedor, por lo tanto, podremos escalar verticalmente pero no horizontalmente y como se ha comentado, los puntos únicos de fallo serán varios: el runtime de contenedores, el contenedor en sí mismo, la conexión de red del equipo si se quiere servir a otros hosts, y la propia máquina anfitriona... etc  
 
 ## Pasos a seguir
 
