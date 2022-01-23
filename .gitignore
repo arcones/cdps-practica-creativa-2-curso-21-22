@@ -11,3 +11,4 @@ tmp_files
 .history
 kubernetes/productpage/productpage-deployment.yaml
 kubernetes/reviews/reviews-deployment.yaml
+kubernetes/probe
